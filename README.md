@@ -5,7 +5,6 @@
 
 Design your Material-UI buttons, add clickable hyperlinks, integrate them in your Streamlit apps! 🎈
 
-<img src="https://user-images.githubusercontent.com/27242399/156757635-52c49abe-943a-435f-8279-94bf3cd731f9.png" width="500"/>
-
+<img src="https://user-images.githubusercontent.com/27242399/156782850-59fc2a89-a070-4ed2-8f38-9a0e95b87150.png" width="500"/>
 
 
