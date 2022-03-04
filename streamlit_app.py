@@ -112,7 +112,7 @@ target="_blank", \
 size="{size}", \
 variant="{buttonStyle}", \
 color="{color}", \
-start_icon="{start_icon[1]}", \
+start_icon={start_icon[1]}, \
 href="{hrefLink}")
 ```
 """
