@@ -13,7 +13,7 @@ st.image(
 st.title("Material-UI Button Designer")
 
 st.write(
-    "Design your Material-UI buttons, add clickable hyperlinks, integrate them in your Streamlit apps! 🎈"
+    "Design your Material-UI buttons, add clickable hyperlinks, integrate them in your Streamlit apps!"
 )
 st.write("")
 
@@ -75,7 +75,7 @@ with st.form(key="my_form_2"):
 mt = Elements()
 start_icon = get_icon(mt, icon_selected)
 
-st.subheader("Button")
+st.subheader("Here's your button! 🎈")
 
 mt.button(
     label,
@@ -89,7 +89,7 @@ mt.button(
 
 mt.show("button")
 
-st.subheader("Code")
+st.subheader("Copy the code")
 
 st.write(
     f"""
