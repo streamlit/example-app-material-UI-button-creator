@@ -48,7 +48,7 @@ with st.form(key="my_form_2"):
         )
         icon_selected = st.selectbox(
             "📸 Icon",
-            ["no icon", "send", "delete", "save", "chat", "call", "accessible"],
+            ["send", "delete", "save", "chat", "call", "accessible"],
             index=1,
             help="Select the button icon (more to come!)",
         )
