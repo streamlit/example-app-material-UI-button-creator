@@ -1,5 +1,5 @@
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/streamlit/example-app-bert-keyword-extractor/main/app.py)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/streamlit/example-app-material-ui-button-creator/main)
 
 # 🕹️ Material UI Button Creator
 
