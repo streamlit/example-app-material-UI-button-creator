@@ -20,7 +20,7 @@ st.write("")
 with st.form(key="my_form_2"):
     col1, col2 = st.columns(2)
     with col1:
-        btn_name = st.text_input(
+        label = st.text_input(
             "🅰️ Button label", value="Press me!", help="Add a label to your button."
         )
         buttonStyle = st.selectbox(
@@ -78,7 +78,7 @@ start_icon = get_icon(mt, icon_selected)
 st.subheader("Button")
 
 mt.button(
-    btn_name,
+    label,
     target="_blank",
     size=size,
     variant=buttonStyle,
@@ -86,20 +86,21 @@ mt.button(
     start_icon=start_icon[0],
     href=hrefLink,
 )
-mt.show("zero")
+
+mt.show("button")
 
 st.subheader("Code")
 
 st.write(
     f"""
 
-First, pip install streamlit-elements
+First, you need to install the awesome ```streamlit-elements``` component by [@okld](https://github.com/okld):
 
 ```python
 pip install streamlit-elements
 ```
 
-Second, add the following code to your Streamlit app
+Second, add the following code to your Streamlit app:
 
 ```python
 import streamlit as st
@@ -107,13 +108,20 @@ from streamlit_elements import Elements
 
 mt = Elements()
 mt.button(\
-"{btn_name}", \
+"{label}", \
 target="_blank", \
 size="{size}", \
 variant="{buttonStyle}", \
 color="{color}", \
 start_icon={start_icon[1]}, \
 href="{hrefLink}")
+mt.show("button")
+
 ```
+
+Voilà! 🙌
+
 """
+
+
 )
