@@ -39,9 +39,9 @@ with st.form(key="my_form_2"):
 
         onclick = st.selectbox(
             "🖱️ App rerun on click",
-            ["none", "Submit", "Rerun"],
+            ["None", "Rerun"],
             index=1,
-            help="If 'Submit' is selected, your button will rerun your app and send state and storage values to Streamlit each time it is clicked",
+            help="If 'Rerun' is selected, your button will rerun your app and send state and storage values to Streamlit each time it is clicked",
         )
 
     with col2:
@@ -56,19 +56,33 @@ with st.form(key="my_form_2"):
         icon_selected = st.selectbox(
             "📸 Icon",
             [
+                "accessible",
+                "add box",
                 "alarm",
-                "send",
+                "arrow back",
+                "arrow downward",
+                "arrow forward",
+                "arrow upward",
+                "call",
+                "chat",
                 "delete",
                 "save",
-                "chat",
-                "call",
-                "accessible",
-                "add_box",
-                "arrow_upward",
-                "arrow_forward",
-                "arrow_downward",
-                "arrow_back",
-            ],
+                "send",
+            ]
+            # [
+            # "alarm",
+            # "send",
+            # "delete",
+            # "save",
+            # "chat",
+            # "call",
+            # "accessible",
+            # "add_box",
+            # "arrow upward",
+            # "arrow forward",
+            # "arrow downward",
+            # "arrow back",]
+            ,
             index=1,
             help="Select an icon for your button (more to come!). You can get the full list of icons here: https://mui.com/components/material-icons/)",
         )
@@ -108,15 +122,15 @@ with st.form(key="my_form_2"):
                 return mt.icons.access_alarm, "mt.icons.access_alarm"
             elif icon == "accessible":
                 return mt.icons.accessible, "mt.icons.accessible"
-            elif icon == "add_box":
+            elif icon == "add box":
                 return mt.icons.add_box, "mt.icons.add_box"
-            elif icon == "arrow_upward":
+            elif icon == "arrow upward":
                 return mt.icons.arrow_upward, "mt.icons.arrow_upward"
-            elif icon == "arrow_downward":
+            elif icon == "arrow downward":
                 return mt.icons.arrow_downward, "mt.icons.arrow_downward"
-            elif icon == "arrow_back":
+            elif icon == "arrow back":
                 return mt.icons.arrow_back, "mt.icons.arrow_back"
-            elif icon == "arrow_forward":
+            elif icon == "arrow forward":
                 return mt.icons.arrow_forward, "mt.icons.arrow_forward"
 
         st.write("")
