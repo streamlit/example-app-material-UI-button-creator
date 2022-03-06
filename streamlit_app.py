@@ -12,9 +12,11 @@ st.image(
 )
 st.title("Material UI Button Designer")
 
-st.write(
-    "Design your Material UI buttons, add hyperlinks, integrate them in your Streamlit apps!"
+st.markdown(
+    "Design your [Material UI buttons](https://mui.com/components/buttons/), add hyperlinks, integrate them in your Streamlit apps!"
 )
+
+
 st.write("")
 
 with st.form(key="my_form_2"):
@@ -68,7 +70,7 @@ with st.form(key="my_form_2"):
                 "arrow_back",
             ],
             index=1,
-            help="Select the button icon (more to come!)",
+            help="Select an icon for your button (more to come!). You can get the full list of icons here: https://mui.com/components/material-icons/)",
         )
 
         hrefLink = st.text_input(
