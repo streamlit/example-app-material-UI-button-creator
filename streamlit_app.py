@@ -1,3 +1,4 @@
+from unicodedata import name
 import streamlit as st
 import random
 from streamlit_elements import Elements
@@ -198,7 +199,7 @@ if buttonStyle == "contained":
     style={{"color":"{fg}", "background":"{bg}"}}, \n\
     href="{hrefLink}")\n\
 
-    mt.show("button", key = "{random.randint(0, 1000)}")
+    mt.show(key = "{random.randint(0, 1000)}")
 
     ```
 
@@ -235,7 +236,7 @@ elif buttonStyle == "outlined":
     color="secondary", \n\
     href="{hrefLink}")\n\
 
-    mt.show("button", key = "{random.randint(0, 1000)}")
+    mt.show(key = "{random.randint(0, 1000)}")
 
     ```
 
