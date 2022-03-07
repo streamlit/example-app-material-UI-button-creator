@@ -36,7 +36,7 @@ with st.form(key="my_form_2"):
         buttonStyle = st.selectbox(
             "🕹️ Button style",
             ["contained", "outlined"],
-            1,
+            0,
             help="Select the button style.",
         )
 
