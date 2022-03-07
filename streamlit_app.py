@@ -1,4 +1,5 @@
 import streamlit as st
+import random
 from streamlit_elements import Elements
 
 st.set_page_config(
@@ -16,36 +17,42 @@ st.markdown(
     "Design your [Material UI buttons](https://mui.com/components/buttons/), add hyperlinks, integrate them in your Streamlit apps!"
 )
 
-
 st.write("")
 
 with st.form(key="my_form_2"):
     cs, col1, col2, cf = st.columns([0.05, 1, 1, 0.05])
     with col1:
         bg = st.color_picker(
-            "🎨 Background Color", "#FF4B4B", help="Select the background color."
+            "🎨 Background Color",
+            "#FF4B4B",
+            help="Select the background color. Only works with the `contained` button style. You can choose between `HEX`, `RGB` or `HSL`.",
         )
         label = st.text_input(
             "🅰️ Button label",
             value="I am a button!",
             help="Add a label to your button.",
         )
+
         buttonStyle = st.selectbox(
             "🕹️ Button style",
-            ["outlined", "contained", "link"],
+            ["contained", "outlined"],
             1,
             help="Select the button style.",
         )
 
         onclick = st.selectbox(
             "🖱️ App rerun on click",
-            ["None", "Rerun"],
+            ["none", "rerun"],
             index=1,
-            help="If 'Rerun' is selected, your button will rerun your app and send state and storage values to Streamlit each time it is clicked",
+            help="If 'rerun' is selected, your button will rerun your app and send state and storage values to Streamlit each time it is clicked",
         )
 
     with col2:
-        fg = st.color_picker("🎨 Font Color", "#FFFFFF", help="Pick a font color.")
+        fg = st.color_picker(
+            "🎨 Font Color",
+            "#FFFFFF",
+            help="Pick a font color. Only works with the `contained` button style. You can choose between `HEX`, `RGB` or `HSL`.",
+        )
         size = st.selectbox(
             "📦 Button size",
             ["small", "medium", "large"],
@@ -68,21 +75,7 @@ with st.form(key="my_form_2"):
                 "delete",
                 "save",
                 "send",
-            ]
-            # [
-            # "alarm",
-            # "send",
-            # "delete",
-            # "save",
-            # "chat",
-            # "call",
-            # "accessible",
-            # "add_box",
-            # "arrow upward",
-            # "arrow forward",
-            # "arrow downward",
-            # "arrow back",]
-            ,
+            ],
             index=1,
             help="Select an icon for your button (more to come!). You can get the full list of icons here: https://mui.com/components/material-icons/)",
         )
@@ -95,11 +88,9 @@ with st.form(key="my_form_2"):
 
         def get_onclick(mt, onclick):
 
-            if onclick == "Submit":
-                return mt.submit, "mt.submit"
-            elif onclick == "Rerun":
+            if onclick == "rerun":
                 return mt.rerun, "mt.rerun"
-            elif onclick == "None":
+            elif onclick == "none":
                 return "", '"none"'
 
         st.write("")
@@ -147,16 +138,30 @@ cs, col1, col2, cf = st.columns([0.05, 0.6, 2, 0.05])
 with col1:
     st.image("arrow.png", width=150)
 with col2:
-    mt.button(
-        label,
-        target="_blank",
-        size=size,
-        variant=buttonStyle,
-        style={"color": fg, "background": bg},
-        on_click=onclick_behaviour[0],
-        start_icon=start_icon[0],
-        href=hrefLink,
-    )
+
+    if buttonStyle == "outlined":
+        mt.button(
+            label,
+            target="_blank",
+            size=size,
+            variant=buttonStyle,
+            color="secondary",
+            on_click=onclick_behaviour[0],
+            start_icon=start_icon[0],
+            href=hrefLink,
+        )
+
+    elif buttonStyle == "contained":
+        mt.button(
+            label,
+            target="_blank",
+            size=size,
+            variant=buttonStyle,
+            style={"color": fg, "background": bg},
+            on_click=onclick_behaviour[0],
+            start_icon=start_icon[0],
+            href=hrefLink,
+        )
 
     st.title("")
     st.subheader("")
@@ -165,36 +170,76 @@ with col2:
 
 st.subheader("Your button's code:")
 
-st.write(
-    f"""
+if buttonStyle == "contained":
+    st.write(
+        f"""
 
-First, you need to install the awesome ```streamlit-elements``` component by [@okld](https://github.com/okld):
+    First, you need to install the awesome ```streamlit-elements``` component by [@okld](https://github.com/okld):
 
-```python
-pip install streamlit-elements
-```
+    ```python
+    pip install streamlit-elements
+    ```
 
-Second, add the following code to your Streamlit app:
+    Second, add the following code to your Streamlit app:
 
-```python
-import streamlit as st
-from streamlit_elements import Elements
+    ```python
+    import streamlit as st
+    from streamlit_elements import Elements
 
-mt = Elements()
-mt.button(\
-"{label}", \
-target="_blank", \
-size="{size}", \
-variant="{buttonStyle}", \
-start_icon={start_icon[1]}, \
-onclick={onclick_behaviour[1]}, \
-style={{"color":"{fg}", "background":"{bg}"}}, \
-href="{hrefLink}")
-mt.show("button")
+    mt = Elements()
+    \n\
+    mt.button(\n\
+    "{label}", \n\
+    target="_blank", \n\
+    size="{size}", \n\
+    variant="{buttonStyle}", \n\
+    start_icon={start_icon[1]}, \n\
+    onclick={onclick_behaviour[1]}, \n\
+    style={{"color":"{fg}", "background":"{bg}"}}, \n\
+    href="{hrefLink}")\n\
 
-```
+    mt.show("{random.randint(0, 1000)}")
 
-Voilà! 🤗
+    ```
 
-"""
-)
+    Voilà! 🤗
+
+    """
+    )
+
+elif buttonStyle == "outlined":
+    st.write(
+        f"""
+
+    First, you need to install the awesome ```streamlit-elements``` component by [@okld](https://github.com/okld):
+
+    ```python
+    pip install streamlit-elements
+    ```
+
+    Second, add the following code to your Streamlit app:
+
+    ```python
+    import streamlit as st
+    from streamlit_elements import Elements
+
+    mt = Elements()
+    \n\
+    mt.button(\n\
+    "{label}", \n\
+    target="_blank", \n\
+    size="{size}", \n\
+    variant="{buttonStyle}", \n\
+    start_icon={start_icon[1]}, \n\
+    onclick={onclick_behaviour[1]}, \n\
+    color="secondary", \n\
+    href="{hrefLink}")\n\
+
+    mt.show("{random.randint(0, 1000)}")
+
+    ```
+
+    Voilà! 🤗
+
+    """
+    )
