@@ -169,9 +169,9 @@ with col2:
     st.write("")
     mt.show("button")
 
-st.subheader("Your button's code:")
 
 if buttonStyle == "contained":
+    st.subheader("Your button's code:")
     st.write(
         f"""
 
@@ -209,6 +209,10 @@ if buttonStyle == "contained":
     )
 
 elif buttonStyle == "outlined":
+
+    st.info("🎨 background and font color only work with the `contained` button style")
+    st.subheader("Your button's code:")
+    
     st.write(
         f"""
 
